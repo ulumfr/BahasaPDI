@@ -5,7 +5,7 @@ public class pdiLoader {
     private String lastLine = "";
 
     public void print(String line) {
-        //clear the last line if longer
+        // clear the last line if longer
         if (lastLine.length() > line.length()) {
             String temp = "";
             for (int i = 0; i < lastLine.length(); i++) {

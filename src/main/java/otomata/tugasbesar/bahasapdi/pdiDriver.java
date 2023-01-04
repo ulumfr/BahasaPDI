@@ -17,9 +17,6 @@ public class pdiDriver {
 
     private static final String fullVer = "PDI PATCH BANTENG (didirikan, Jan 10 1973)";
 
-    /**
-     * ANSI Color Term
-     */
     public static final String RESET = "\033[0m";
     public static final String GREEN_BOLD = "\033[1;32m";
     public static final String YELLOW_BOLD = "\033[1;33m";
@@ -34,7 +31,6 @@ public class pdiDriver {
 
     @SneakyThrows
     public void execute() {
-
         boolean exit = false;
         Scanner userInput = new Scanner(System.in);
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss");
@@ -51,15 +47,18 @@ public class pdiDriver {
                 CompositeStatement statement = new CompositeStatement();
                 StatementParser.parse(tokens, statement);
                 statement.execute();
-            } finally {}
+            } finally {
+            }
         } while (!exit);
+
+        userInput.close();
     }
 
     @SneakyThrows
     public void execute(Path params) {
 
         int index = params.toString().lastIndexOf('.');
-        if(params.toString().substring(index + 1).equals("pdi")) {
+        if (params.toString().substring(index + 1).equals("pdi")) {
             String sources = Files.readString(params);
 
             LexicalParser lexicalParser = new LexicalParser(sources);
@@ -87,7 +86,7 @@ public class pdiDriver {
 
         for (int i = 0; i < 100; i++) {
             loader.animate(i + "");
-            Thread.sleep(5);
+            Thread.sleep(3);
         }
 
         System.out.print("\033[H\033[2J");

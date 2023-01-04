@@ -33,7 +33,8 @@ public class StatementParser {
     private final Scanner scanner;
     private final CompositeStatement compositeStatement;
 
-    public static void parse(StatementParser parent, CompositeStatement compositeStatement, DefinitionScope definitionScope) {
+    public static void parse(StatementParser parent, CompositeStatement compositeStatement,
+            DefinitionScope definitionScope) {
         DefinitionContext.pushScope(definitionScope);
         try {
             StatementParser parser = new StatementParser(parent.getTokens(), parent.getScanner(), compositeStatement);
@@ -46,7 +47,8 @@ public class StatementParser {
     }
 
     public static void parse(List<Token> tokens, CompositeStatement compositeStatement) {
-        StatementParser parser = new StatementParser(new TokensStack(tokens), new Scanner(System.in), compositeStatement);
+        StatementParser parser = new StatementParser(new TokensStack(tokens), new Scanner(System.in),
+                compositeStatement);
         while (parser.hasNextStatement()) {
             parser.parseExpression();
         }
@@ -178,21 +180,21 @@ public class StatementParser {
         ConditionStatement conditionStatement = new ConditionStatement();
 
         while (!tokens.peek(TokenType.Keyword, "sudah")) {
-            //read condition case
+            // read condition case
             Token type = tokens.next(TokenType.Keyword, "jika", "jikalau", "jikatak");
             Expression caseCondition;
             if (type.getValue().equals("jikatak")) {
-                caseCondition = new LogicalValue(true); //else case does not have the condition
+                caseCondition = new LogicalValue(true); // else case does not have the condition
             } else {
                 caseCondition = ExpressionReader.readExpression(tokens);
             }
 
-            //read case statements
+            // read case statements
             CompositeStatement caseStatement = new CompositeStatement();
             DefinitionScope caseScope = DefinitionContext.newScope();
             StatementParser.parse(this, caseStatement, caseScope);
 
-            //add case
+            // add case
             conditionStatement.addCase(caseCondition, caseStatement);
         }
         tokens.next(TokenType.Keyword, "sudah");
@@ -207,7 +209,7 @@ public class StatementParser {
 
         if (tokens.peek(TokenType.GroupDivider, "[")) {
 
-            tokens.next(TokenType.GroupDivider, "["); //terus open square bracket
+            tokens.next(TokenType.GroupDivider, "["); // terus open square bracket
 
             while (!tokens.peek(TokenType.GroupDivider, "]")) {
                 Token argumentToken = tokens.next(TokenType.Variable);
@@ -217,7 +219,7 @@ public class StatementParser {
                     tokens.next();
             }
 
-            tokens.next(TokenType.GroupDivider, "]"); //terus close square bracket
+            tokens.next(TokenType.GroupDivider, "]"); // terus close square bracket
         }
 
         // add class definition
@@ -226,7 +228,7 @@ public class StatementParser {
         ClassDefinition classDefinition = new ClassDefinition(type.getValue(), arguments, classStatement, classScope);
         DefinitionContext.getScope().addClass(classDefinition);
 
-        //parse class statements
+        // parse class statements
         StatementParser.parse(this, classStatement, classScope);
         tokens.next(TokenType.Keyword, "sudah");
     }
@@ -238,7 +240,7 @@ public class StatementParser {
 
         if (tokens.peek(TokenType.GroupDivider, "[")) {
 
-            tokens.next(TokenType.GroupDivider, "["); //terus open square bracket
+            tokens.next(TokenType.GroupDivider, "["); // terus open square bracket
 
             while (!tokens.peek(TokenType.GroupDivider, "]")) {
                 Token argumentToken = tokens.next(TokenType.Variable);
@@ -248,16 +250,17 @@ public class StatementParser {
                     tokens.next();
             }
 
-            tokens.next(TokenType.GroupDivider, "]"); //terus close square bracket
+            tokens.next(TokenType.GroupDivider, "]"); // terus close square bracket
         }
 
-        //add function definition
+        // add function definition
         FunctionStatement functionStatement = new FunctionStatement();
         DefinitionScope functionScope = DefinitionContext.newScope();
-        FunctionDefinition functionDefinition = new FunctionDefinition(type.getValue(), arguments, functionStatement, functionScope);
+        FunctionDefinition functionDefinition = new FunctionDefinition(type.getValue(), arguments, functionStatement,
+                functionScope);
         DefinitionContext.getScope().addFunction(functionDefinition);
 
-        //parse function statements
+        // parse function statements
         StatementParser.parse(this, functionStatement, functionScope);
         tokens.next(TokenType.Keyword, "sudah");
     }
