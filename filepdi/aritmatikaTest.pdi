@@ -1,0 +1,43 @@
+a = 5
+b = 7
+
+tulis " "
+tulis "=============== Penjumlahan ==============="
+tulis " "
+tulis a + " ditambah " + b + " = " + (a + b)
+
+tulis " "
+tulis "=============== Pengurangan ==============="
+tulis " "
+tulis a + " dikurangi " + b + " = " + (a - b)
+
+tulis " "
+tulis "=============== Perkalian ================="
+tulis " "
+tulis a + " dikali " + b + " = " + (a * b)
+
+tulis " "
+tulis "=============== Pembagian ================="
+tulis " "
+tulis a + " dibagi " + b + " = " + (a / b)
+
+tulis " "
+tulis "=============== Modulus ==================="
+tulis " "
+tulis a + " modulus " + b + " = " + (a % b)
+
+tulis " "
+tulis "=============== Penggabungan 2 Operasi ==============="
+tulis " "
+tulis a + " dikali " + b + " dikurangi " + a + " = " + (a * b - a)
+
+tulis " "
+tulis "=============== Bertingkat 1 Level ==============="
+tulis " "
+tulis a + " ditambah " + b + " ditambah " + a + " = " + (a + b) + a
+
+tulis " "
+tulis "=============== Bertingkat lebih dari 1 Level ==============="
+tulis " "
+tulis a + " ditambah " + b + " ditambah " + a + " = " + ((a + b) + a)
+tulis " "

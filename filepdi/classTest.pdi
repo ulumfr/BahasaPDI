@@ -1,0 +1,30 @@
+tulis " "
+tulis "== TIPE DATA DAN VARIABLE =="
+tulis " "
+
+kelas lampu [ type, sudah_nyala ]
+    fungsi nyalakan []
+        sudah_nyala = true
+    sudah
+
+    fungsi matikan []
+        sudah_nyala = false
+    sudah
+
+    fungsi set_sudah_nyala [ sudah_nyala ]
+        this :: sudah_nyala = sudah_nyala
+    sudah
+sudah
+
+lampu_pdi = new lampu [ "Banteng", false ]
+
+# get/set kelas's property
+lampu_sudah_nyala = lampu_pdi :: sudah_nyala
+lampu_pdi :: type = "Led"
+
+# invoke kelas's function
+lampu_pdi :: matikan []
+
+tulis lampu_pdi
+
+tulis " "

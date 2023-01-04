@@ -1,0 +1,65 @@
+a = 200
+
+tulis " "
+tulis "=== Ganda dan Multi ==="
+tulis " "
+
+jika a == 1
+    tulis "a adalah 1"
+jikalau a == 2
+    tulis "a adalah 2"
+jikatak
+    tulis "bukan pilihan"
+sudah
+
+tulis " "
+tulis "=== NOT ==="
+tulis " "
+
+jika !false
+    tulis "tidak benar"
+sudah
+
+tulis " "
+tulis "=== AND ==="
+tulis " "
+
+jika true and true
+    tulis "benar"
+sudah
+
+tulis " "
+tulis "=== OR ==="
+tulis " "
+
+jika true or false
+    tulis "ATAU"
+sudah
+
+tulis " "
+tulis "== NOT EQUAL TO =="
+tulis " "
+
+jika a != 1
+    tulis "GATAU"
+sudah
+
+tulis " "
+tulis "== LEVEL PERCABANGAN (RELASI JUGA) =="
+tulis " "
+
+jika a <= 6
+    jika a > 4
+        jika a == 5
+            tulis "a = 5"
+        sudah
+    sudah
+jikalau a >= 7
+    jika a >= 10
+        jika a >= 100
+            tulis "a lebih"
+        sudah
+    sudah
+sudah
+
+tulis " "

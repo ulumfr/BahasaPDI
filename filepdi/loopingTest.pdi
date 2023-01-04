@@ -1,0 +1,46 @@
+tulis " "
+tulis "========== For loop =========="
+tulis " "
+
+ulang i selama 1..5
+    tulis i
+sudah
+
+tulis " "
+tulis "========== While loop =========="
+tulis " "
+
+i = 1
+ulang i < 5
+    tulis i
+    i = i + 1
+sudah
+
+tulis " "
+tulis "========== Sorting =========="
+tulis " "
+
+fungsi bubble_sort [arr, length]
+    ulang i selama 0..length - 1
+        ulang j selama 0..length - i - 1
+            jika arr{j+1} < arr{j}
+                temp = arr{j}
+                arr{j} = arr{j + 1}
+                arr{j + 1} = temp
+            sudah
+       sudah
+    sudah
+sudah
+
+arr = {2, 5, 6, 7, 19, 1, 2, 5, 8}
+bubble_sort[arr,9]
+tulis arr
+
+tulis " "
+tulis "========== Multidimensi =========="
+tulis " "
+
+items = {{1,2},{3,4}} 
+tulis items
+
+tulis " "

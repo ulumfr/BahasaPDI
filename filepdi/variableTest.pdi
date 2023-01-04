@@ -1,0 +1,31 @@
+phi = 3.14
+r = 14
+
+luasLingkaran = phi * r * r
+
+tulis " "
+tulis "== TIPE DATA DAN VARIABLE =="
+tulis " "
+
+tulis "variabel ph: " + phi
+tulis "variabel jari-jari: " + r
+tulis "Luas lingkarannya adalah: " + luasLingkaran
+
+tulis " "
+tulis "== ARRAYS =="
+tulis " "
+arr = {"PDI", "PERJUANGAN"}
+tulis arr
+
+tulis " "
+tulis "== BOOLEAN =="
+tulis " "
+
+a = 1
+b = 2
+boolA = a < b
+boolB = b < a
+tulis a + " kurang dari " + b + " " + boolA
+tulis b + " kurang dari " + a + " " + boolB
+
+tulis " "
